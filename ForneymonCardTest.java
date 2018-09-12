@@ -3,7 +3,7 @@
 public class ForneymonCardTest{
 
     public static void main(String[] args){
-        FlippingForneymonCard burny = new FlippingForneymonCard("burnes","Burneymon",true);
+        FlippingForneymonCard burny = new FlippingForneymonCard("burny","Burnymon",true);
         System.out.println(burny);
         burny.flip();
         System.out.println(burny);
