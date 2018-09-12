@@ -1,4 +1,4 @@
-public class FlippingForneymonCard extends ForneymonCard{
+public class FlippingForneymonCard extends ForneymonCard implements MinForneymonCard{
 
     boolean isDown;
 
