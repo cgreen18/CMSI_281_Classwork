@@ -1,14 +1,14 @@
-public class FlippingForneymonCard implements ForneymonCard{
+public class FlippingForneymonCard extends ForneymonCard{
 
     boolean isDown;
 
     FlippingForneymonCard(boolean initialArg, ForneymonCard forneyArg){
-        forneyArg.super(forneyArg.getName(),forneyArg.getType());
+        super(forneyArg.getName(),forneyArg.getType());
         isDown = initialArg;
     }
 
     FlippingForneymonCard(){
-        forneyArg.super();
+        super();
         isDown = true;
     }
 
@@ -38,7 +38,8 @@ public class FlippingForneymonCard implements ForneymonCard{
             return ("?:?");
         }
         else{
-            super.toString();
+            return super.toString();
         }
+
     }
 }
