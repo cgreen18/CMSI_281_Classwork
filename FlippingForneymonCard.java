@@ -3,8 +3,13 @@ public class FlippingForneymonCard implements ForneymonCard{
     boolean isDown;
 
     FlippingForneymonCard(boolean initialArg, ForneymonCard forneyArg){
-        forneyArg.super();
+        forneyArg.super(forneyArg.getName(),forneyArg.getType());
         isDown = initialArg;
+    }
+
+    FlippingForneymonCard(){
+        forneyArg.super();
+        isDown = true;
     }
 
     public boolean flip(){
