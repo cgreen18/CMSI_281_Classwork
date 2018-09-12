@@ -2,8 +2,8 @@ public class FlippingForneymonCard extends ForneymonCard implements MinForneymon
 
     boolean isDown;
 
-    FlippingForneymonCard(boolean initialArg, ForneymonCard forneyArg){
-        super(forneyArg.getName(),forneyArg.getType());
+    FlippingForneymonCard(String nameArg, String typeArg,boolean initialArg){
+        super(nameArg,typeArg);
         isDown = initialArg;
     }
 
