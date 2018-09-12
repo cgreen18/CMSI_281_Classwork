@@ -1,7 +1,7 @@
 //package forneymonCardGame;
 
 // ForneymonCard class
-public class ForneymonCard {
+public class ForneymonCard implements MinForneymonCard {
 
 	// declare instance variables
 	private String type;
