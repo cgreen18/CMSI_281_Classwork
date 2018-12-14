@@ -70,6 +70,7 @@ public class Sentinal implements SentinalInterface {
                 for(int i = 0; i < current.length; i++){
                     if(posHash.get(current[i]) != null){
                         sent++;
+                        System.out.println("Positive: " + posHash.get(current[i]));
                     }
 
                 }
@@ -79,6 +80,8 @@ public class Sentinal implements SentinalInterface {
                 for(int i = 0; i < current.length; i++){
                     if(negHash.get(current[i]) != null){
                         sent--;
+                        System.out.println("Negative: " + negHash.get(current[i]));
+
                     }
 
                 }
@@ -107,8 +110,12 @@ public class Sentinal implements SentinalInterface {
     // TODO: add your helper methods here!
     private String[] getLonger(String[] original, int grouping){
         String[] arrWords = new String[original.length-grouping];
+        String temp = new String("");
         for(int i = 0; i < arrWords.length;i++){
-            arrWords[i] = original[i+grouping];
+            for(int j = 0; j < grouping; j++){
+                temp = temp + original[i+j];
+            }
+            arrWords[i] = temp;
         }
         return arrWords;
     }
