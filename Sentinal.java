@@ -46,32 +46,49 @@ public class Sentinal implements SentinalInterface {
 
     public void loadSentimentFile (String filename, boolean positive) throws FileNotFoundException {
         //File filey = new File(filename);
-
-        Scanner scan = new Scanner(filename);
+        File myFile = new File(filename);
+        Scanner scan = new Scanner(myFile);
 
         while(scan.hasNextLine() == true){
-            loadSentiment(scan.nextLine(),true);
+            loadSentiment(scan.nextLine(),positive);
         }
     }
 
     public String sentinalyze (String filename) throws FileNotFoundException {
-        Scanner scan = new Scanner(filename);
-        System.out.println(filename);
+        File myFile = new File(filename);
+        Scanner scan = new Scanner(myFile);
         String[] words;
 
         int sent = 0;
 
         while(scan.hasNextLine()){
-            words = scan.nextLine().trim().split(" ");
-            for(int i = 0; i < words.length; i++){
-                if(posHash.get(words[i]) != null){
-                    sent++;
-                }
-                else if(negHash.get(words[i]) != null){
-                    sent--;
+            String line = scan.nextLine();
+            words = line.trim().split(" ");
+            String[] current;
+            for(int k = 0; k <= posHash.longestLength();k++){
+                current = getLonger(words,k);
+                for(int i = 0; i < current.length; i++){
+                    if(posHash.get(current[i]) != null){
+                        sent++;
+                    }
+
                 }
             }
+            for(int k = 0; k <= negHash.longestLength();k++){
+                current = getLonger(words,k);
+                for(int i = 0; i < current.length; i++){
+                    if(negHash.get(current[i]) != null){
+                        sent--;
+                    }
+
+                }
+            }
+
+
+
         }
+
+        System.out.println(sent);
 
         if(sent > 0){
             return new String("positive");
@@ -88,5 +105,11 @@ public class Sentinal implements SentinalInterface {
     // -----------------------------------------------------------
 
     // TODO: add your helper methods here!
-
+    private String[] getLonger(String[] original, int grouping){
+        String[] arrWords = new String[original.length-grouping];
+        for(int i = 0; i < arrWords.length;i++){
+            arrWords[i] = original[i+grouping];
+        }
+        return arrWords;
+    }
 }
