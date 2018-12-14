@@ -47,11 +47,11 @@ public class Sentinal implements SentinalInterface {
     public void loadSentimentFile (String filename, boolean positive) throws FileNotFoundException {
         Scanner scan = new Scanner(filename);
 
-        while(posScan.hasNextLine() == true){
-            loadSentiment(posScan.nextLine(),true);
+        while(scan.hasNextLine() == true){
+            loadSentiment(scan.nextLine(),true);
         }
-        while(negScan.hasNextLine() == false){
-            loadSentiment(negScan.nextLine(),false);
+        while(scan.hasNextLine() == false){
+            loadSentiment(scan.nextLine(),false);
         }
     }
 
@@ -61,7 +61,7 @@ public class Sentinal implements SentinalInterface {
 
         while(scan.hasNextLine()){
             words = scan.nextLine().trim().split(" ");
-            
+
         }
     }
 
