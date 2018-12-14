@@ -1,4 +1,4 @@
-package sentinal;
+//package sentinal;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -45,18 +45,18 @@ public class Sentinal implements SentinalInterface {
     }
 
     public void loadSentimentFile (String filename, boolean positive) throws FileNotFoundException {
+        //File filey = new File(filename);
+
         Scanner scan = new Scanner(filename);
 
         while(scan.hasNextLine() == true){
             loadSentiment(scan.nextLine(),true);
         }
-        while(scan.hasNextLine() == false){
-            loadSentiment(scan.nextLine(),false);
-        }
     }
 
     public String sentinalyze (String filename) throws FileNotFoundException {
         Scanner scan = new Scanner(filename);
+        System.out.println(filename);
         String[] words;
 
         int sent = 0;
@@ -71,7 +71,6 @@ public class Sentinal implements SentinalInterface {
                     sent--;
                 }
             }
-
         }
 
         if(sent > 0){
