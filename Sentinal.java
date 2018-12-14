@@ -59,10 +59,28 @@ public class Sentinal implements SentinalInterface {
         Scanner scan = new Scanner(filename);
         String[] words;
 
+        int sent = 0;
+
         while(scan.hasNextLine()){
             words = scan.nextLine().trim().split(" ");
+            for(int i = 0; i < words.length; i++){
+                if(posHash.get(words[i]) != null){
+                    sent++;
+                }
+                else if(negHash.get(words[i]) != null){
+                    sent--;
+                }
+            }
 
         }
+
+        if(sent > 0){
+            return new String("positive");
+        }
+        else if(sent < 0){
+            return new String("negative");
+        }
+        return new String("neutral");
     }
 
 
