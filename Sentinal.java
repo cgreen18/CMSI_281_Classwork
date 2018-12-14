@@ -33,31 +33,36 @@ public class Sentinal implements SentinalInterface {
     public void loadSentiment (String phrase, boolean positive) {
         String[] words = phrase.trim().split(" ");
         if(positive){
-            for(i = 0; i< words.length; i++){
+            for(int i = 0; i< words.length; i++){
                 posHash.put(words[i]);
             }
         }
         else{
-             for(i = 0; i< words.length; i++){
+             for(int i = 0; i< words.length; i++){
                  negHash.put(words[i]);
              }
         }
     }
 
     public void loadSentimentFile (String filename, boolean positive) throws FileNotFoundException {
-        Scanner posScan = new Scanner(posFile);
-        Scanner negScan = new Scanner(negFile);
+        Scanner scan = new Scanner(filename);
 
         while(posScan.hasNextLine() == true){
             loadSentiment(posScan.nextLine(),true);
         }
-        while(negScan.hasNextLine() == true){
+        while(negScan.hasNextLine() == false){
             loadSentiment(negScan.nextLine(),false);
         }
     }
 
     public String sentinalyze (String filename) throws FileNotFoundException {
-        throw new UnsupportedOperationException();
+        Scanner scan = new Scanner(filename);
+        String[] words;
+
+        while(scan.hasNextLine()){
+            words = scan.nextLine().trim().split(" ");
+            
+        }
     }
 
 
