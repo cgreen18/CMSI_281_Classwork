@@ -70,7 +70,6 @@ public class Sentinal implements SentinalInterface {
                 for(int i = 0; i < current.length; i++){
                     if(posHash.get(current[i]) != null){
                         sent++;
-                        System.out.println("Positive: " + posHash.get(current[i]));
                     }
 
                 }
@@ -80,8 +79,6 @@ public class Sentinal implements SentinalInterface {
                 for(int i = 0; i < current.length; i++){
                     if(negHash.get(current[i]) != null){
                         sent--;
-                        System.out.println("Negative: " + negHash.get(current[i]));
-
                     }
 
                 }
